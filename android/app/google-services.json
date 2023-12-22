@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "719116842095",
+    "project_id": "logintester-99843",
+    "storage_bucket": "logintester-99843.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719116842095:android:413b0f2c7bcc53ad3d499a",
+        "android_client_info": {
+          "package_name": "com.marekrudzki.login_tester"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNXqCy36cNYIj8ie5RP4p3woJ-NTyJJ2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
