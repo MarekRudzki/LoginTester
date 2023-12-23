@@ -26,14 +26,14 @@ class LoginMethods extends StatelessWidget {
               selectedValue: loginProvider.selectedLoginValue,
             ),
             SingleLoginMethod(
-              icon: Icons.group,
-              text: 'Social Media Accounts',
+              icon: Icons.phone,
+              text: 'Phone Nnumber',
               methodIndex: 3,
               selectedValue: loginProvider.selectedLoginValue,
             ),
             SingleLoginMethod(
-              icon: Icons.phone,
-              text: 'Phone Nnumber',
+              icon: Icons.group,
+              text: 'Social Media Accounts',
               methodIndex: 4,
               selectedValue: loginProvider.selectedLoginValue,
             ),

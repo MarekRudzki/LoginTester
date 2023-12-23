@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_tester/features/anonymous/anonymous.dart';
+import 'package:login_tester/features/email_password/presentation/email_password.dart';
 import 'package:login_tester/features/login_selection/provider/login_provider.dart';
 import 'package:login_tester/features/login_selection/widgets/login_methods.dart';
 import 'package:provider/provider.dart';
@@ -14,16 +15,18 @@ class AuthScreen extends StatelessWidget {
 
     final List<Widget> availableLoginMethods = [
       const Anonymous(),
+      const EmailPassword(),
     ];
 
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.teal,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               children: [
+                const SizedBox(height: 40),
                 const Text(
                   'Welcome to Login Tester App!',
                   style: TextStyle(
@@ -88,9 +91,6 @@ class AuthScreen extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: MediaQuery.sizeOf(context).height * 0.15,
                 ),
                 if (currentLoginIndex == 0)
                   const SizedBox.shrink()
