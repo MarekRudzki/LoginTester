@@ -12,7 +12,20 @@
           "package_name": "com.marekrudzki.login_tester"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "719116842095-kk8ukmqo4q38larf5f9j8mmseivaqc8r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marekrudzki.login_tester",
+            "certificate_hash": "29abeff471aa8af28e75477802f6e9ab2a4875ad"
+          }
+        },
+        {
+          "client_id": "719116842095-p84m38vuci2g5ajqrf6boleq1i73k8k9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCNXqCy36cNYIj8ie5RP4p3woJ-NTyJJ2k"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719116842095-p84m38vuci2g5ajqrf6boleq1i73k8k9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

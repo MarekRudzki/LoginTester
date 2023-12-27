@@ -7,6 +7,8 @@ import 'package:login_tester/features/email_password/presentation/bloc/email_pas
 import 'package:login_tester/features/login_selection/provider/login_provider.dart';
 import 'package:login_tester/features/phone_number/data/phone_number_firebase.dart';
 import 'package:login_tester/features/phone_number/presentation/bloc/phone_number_bloc.dart';
+import 'package:login_tester/features/social_media_accounts/data/social_media_accounts_firebase.dart';
+import 'package:login_tester/features/social_media_accounts/presentation/bloc/social_media_accounts_bloc.dart';
 import 'package:login_tester/helpers/firebase_options.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +32,12 @@ void main() async {
             create: (context) => PhoneNumberBloc(
               PhoneNumberFirebase(),
             ),
-          )
+          ),
+          BlocProvider(
+            create: (context) => SocialMediaAccountsBloc(
+              SocialMediaAccountsFirebase(),
+            ),
+          ),
         ],
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,

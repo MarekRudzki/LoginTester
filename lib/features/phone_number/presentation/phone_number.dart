@@ -19,7 +19,7 @@ class PhoneNumber extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               duration: const Duration(
-                seconds: 5,
+                seconds: 3,
               ),
               backgroundColor: Colors.red,
             ),
@@ -62,7 +62,9 @@ class PhoneNumber extends StatelessWidget {
                 height: MediaQuery.sizeOf(context).height * 0.1,
               ),
               const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                ),
               ),
             ],
           );

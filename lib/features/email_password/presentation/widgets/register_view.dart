@@ -111,7 +111,9 @@ class _RegisterViewState extends State<RegisterView> {
                     BlocBuilder<EmailPasswordBloc, EmailPasswordState>(
                       builder: (context, state) {
                         if (state is EmailPasswordLoading) {
-                          return const CircularProgressIndicator();
+                          return const CircularProgressIndicator(
+                            color: Colors.white,
+                          );
                         } else {
                           return InkWell(
                             onTap: () {

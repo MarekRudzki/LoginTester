@@ -115,7 +115,9 @@ class ResetPassword extends StatelessWidget {
               builder: (context, state) {
                 if (state is EmailPasswordLoading) {
                   return const Center(
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
                   );
                 } else {
                   return Row(

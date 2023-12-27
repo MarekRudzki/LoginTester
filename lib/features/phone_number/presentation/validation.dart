@@ -54,7 +54,14 @@ class _ValidationState extends State<Validation> {
             textAlign: TextAlign.center,
           )
         else
-          const SizedBox.shrink(),
+          const Text(
+            'Please type in your phone number with country code (e.g. +48)',
+            style: TextStyle(
+              fontSize: 17,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
         Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 20,
