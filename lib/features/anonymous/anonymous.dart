@@ -22,7 +22,7 @@ class Anonymous extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => SuccessScreen(
-                    userType: 'Anonymous',
+                    userType: 'Anonymous Account',
                     onLogOut: () async {
                       await FirebaseAuth.instance.signOut();
                       if (!context.mounted) return;

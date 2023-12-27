@@ -65,7 +65,8 @@ class _RegisterViewState extends State<RegisterView> {
                     userType: 'Email & Password',
                     onLogOut: () async {
                       clearControllers();
-                      context.read<EmailPasswordBloc>().signOut();
+                      await context.read<EmailPasswordBloc>().signOut();
+                      if (!context.mounted) return;
                       context.read<EmailPasswordBloc>().add(
                             AuthViewChanged(
                               view: AuthView.login,

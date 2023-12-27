@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login_tester/features/email_password/data/auth_firebase.dart';
+import 'package:login_tester/features/email_password/data/email_password_firebase.dart';
 
 part 'email_password_event.dart';
 part 'email_password_state.dart';
@@ -8,7 +8,7 @@ part 'email_password_state.dart';
 enum AuthView { login, register }
 
 class EmailPasswordBloc extends Bloc<EmailPasswordEvent, EmailPasswordState> {
-  final AuthFirebase _authFirebase;
+  final EmailPasswordFirebase _authFirebase;
 
   EmailPasswordBloc(this._authFirebase) : super(EmailPasswordInitial()) {
     on<LoginButtonPressed>(_onLoginButtonPressed);

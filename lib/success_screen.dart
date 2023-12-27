@@ -25,7 +25,7 @@ class SuccessScreen extends StatelessWidget {
                   height: MediaQuery.sizeOf(context).height * 0.1,
                 ),
                 const Text(
-                  'You have successfully connected as:',
+                  'You have successfully connected with:',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,

@@ -3,6 +3,7 @@ import 'package:login_tester/features/anonymous/anonymous.dart';
 import 'package:login_tester/features/email_password/presentation/email_password.dart';
 import 'package:login_tester/features/login_selection/provider/login_provider.dart';
 import 'package:login_tester/features/login_selection/widgets/login_methods.dart';
+import 'package:login_tester/features/phone_number/presentation/phone_number.dart';
 import 'package:provider/provider.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -16,6 +17,7 @@ class AuthScreen extends StatelessWidget {
     final List<Widget> availableLoginMethods = [
       const Anonymous(),
       const EmailPassword(),
+      const PhoneNumber(),
     ];
 
     return SafeArea(
