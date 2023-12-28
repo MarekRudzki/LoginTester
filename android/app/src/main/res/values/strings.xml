@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LoginTester</string>
     <string name="facebook_app_id">1599386817489938</string>
+    <string name="fb_login_protocol_scheme">fb1599386817489938</string>
+    <string name="facebook_client_token">43e332a8972f83b59c8afe50f34d85a5</string>
 </resources>

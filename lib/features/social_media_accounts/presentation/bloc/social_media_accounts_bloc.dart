@@ -49,7 +49,9 @@ class SocialMediaAccountsBloc
   ) async {
     try {
       emit(SocialMediaAccountsLoading());
+      print('1');
       final LoginResult loginResult = await FacebookAuth.instance.login();
+      print(loginResult);
 
       final OAuthCredential facebookAuthCredential =
           FacebookAuthProvider.credential(loginResult.accessToken!.token);
