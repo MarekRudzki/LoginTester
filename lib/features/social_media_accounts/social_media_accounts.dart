@@ -66,6 +66,24 @@ class SocialMediaAccounts extends StatelessWidget {
                         );
                   },
                 ),
+                SocialMediaButton(
+                  imagePath: 'assets/twitter_icon.webp',
+                  buttonText: 'Sign in with Twitter',
+                  onTap: () {
+                    context.read<SocialMediaAccountsBloc>().add(
+                          LoginWithTwitterPressed(),
+                        );
+                  },
+                ),
+                SocialMediaButton(
+                  imagePath: 'assets/github_icon.png',
+                  buttonText: 'Sign in with Github',
+                  onTap: () {
+                    context.read<SocialMediaAccountsBloc>().add(
+                          LoginWithGithubPressed(),
+                        );
+                  },
+                ),
               ],
             );
           } else if (state is SocialMediaAccountsLoading) {

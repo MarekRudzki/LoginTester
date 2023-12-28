@@ -9,7 +9,7 @@ class SocialMediaAccountsFirebase {
     await _firebaseAuth.signInWithCredential(credential);
   }
 
-  Future<void> signInWithFacebook({
+  Future<void> signInWithCredential({
     required OAuthCredential credential,
   }) async {
     await _firebaseAuth.signInWithCredential(credential);

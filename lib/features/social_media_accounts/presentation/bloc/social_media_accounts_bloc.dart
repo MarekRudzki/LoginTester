@@ -1,9 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:login_tester/features/social_media_accounts/data/social_media_accounts_firebase.dart';
+import 'package:twitter_login/twitter_login.dart';
 
 part 'social_media_accounts_event.dart';
 part 'social_media_accounts_state.dart';
@@ -15,6 +17,8 @@ class SocialMediaAccountsBloc
       : super(SocialMediaAccountsInitial()) {
     on<LoginWithGooglePressed>(_onLoginWithGooglePressed);
     on<LoginWithFacebookPressed>(_onLoginWithFacebookPressed);
+    on<LoginWithTwitterPressed>(_onLoginWithTwitterPressed);
+    on<LoginWithGithubPressed>(_onLoginWithGithubPressed);
   }
 
   Future<void> _onLoginWithGooglePressed(
@@ -49,19 +53,71 @@ class SocialMediaAccountsBloc
   ) async {
     try {
       emit(SocialMediaAccountsLoading());
-      print('1');
       final LoginResult loginResult = await FacebookAuth.instance.login();
-      print(loginResult);
 
       final OAuthCredential facebookAuthCredential =
           FacebookAuthProvider.credential(loginResult.accessToken!.token);
 
-      await _socialMediaAccountsFirebase.signInWithFacebook(
+      await _socialMediaAccountsFirebase.signInWithCredential(
           credential: facebookAuthCredential);
       emit(SocialMediaAccountsSuccess());
       emit(SocialMediaAccountsInitial());
     } on Exception catch (e) {
+      emit(SocialMediaAccountsError(errorMessage: e.toString()));
+      emit(SocialMediaAccountsInitial());
+    }
+  }
+
+  Future<void> _onLoginWithTwitterPressed(
+    LoginWithTwitterPressed event,
+    Emitter<SocialMediaAccountsState> emit,
+  ) async {
+    try {
+      emit(SocialMediaAccountsLoading());
+      await dotenv.load();
+
+      final twitterLogin = TwitterLogin(
+        apiKey: dotenv.env['TwitterConsumerKey']!,
+        apiSecretKey: dotenv.env['TwitterConsumerSecret']!,
+        redirectURI:
+            "https://logintester-99843.firebaseapp.com/__/auth/handler",
+      );
+
+      final authResult = await twitterLogin.login();
+
+      final twitterAuthCredential = TwitterAuthProvider.credential(
+        accessToken: authResult.authToken!,
+        secret: authResult.authTokenSecret!,
+      );
+
+      await _socialMediaAccountsFirebase.signInWithCredential(
+          credential: twitterAuthCredential);
+
+      emit(SocialMediaAccountsSuccess());
+      emit(SocialMediaAccountsInitial());
+    } on Exception catch (e) {
       print(e);
+      emit(SocialMediaAccountsError(errorMessage: e.toString()));
+      emit(SocialMediaAccountsInitial());
+    }
+  }
+
+  Future<void> _onLoginWithGithubPressed(
+    LoginWithGithubPressed event,
+    Emitter<SocialMediaAccountsState> emit,
+  ) async {
+    try {
+      emit(SocialMediaAccountsLoading());
+      final LoginResult loginResult = await FacebookAuth.instance.login();
+
+      final OAuthCredential facebookAuthCredential =
+          FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+      await _socialMediaAccountsFirebase.signInWithCredential(
+          credential: facebookAuthCredential);
+      emit(SocialMediaAccountsSuccess());
+      emit(SocialMediaAccountsInitial());
+    } on Exception catch (e) {
       emit(SocialMediaAccountsError(errorMessage: e.toString()));
       emit(SocialMediaAccountsInitial());
     }

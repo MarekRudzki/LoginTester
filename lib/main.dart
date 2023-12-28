@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:login_tester/auth_screen.dart';
 import 'package:login_tester/features/email_password/data/email_password_firebase.dart';
 import 'package:login_tester/features/email_password/presentation/bloc/email_password_bloc.dart';
@@ -13,6 +14,7 @@ import 'package:login_tester/helpers/firebase_options.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  await dotenv.load();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
