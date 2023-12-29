@@ -18,7 +18,6 @@ class SocialMediaAccountsBloc
     on<LoginWithGooglePressed>(_onLoginWithGooglePressed);
     on<LoginWithFacebookPressed>(_onLoginWithFacebookPressed);
     on<LoginWithTwitterPressed>(_onLoginWithTwitterPressed);
-    on<LoginWithGithubPressed>(_onLoginWithGithubPressed);
   }
 
   Future<void> _onLoginWithGooglePressed(
@@ -93,28 +92,6 @@ class SocialMediaAccountsBloc
       await _socialMediaAccountsFirebase.signInWithCredential(
           credential: twitterAuthCredential);
 
-      emit(SocialMediaAccountsSuccess());
-      emit(SocialMediaAccountsInitial());
-    } on Exception catch (e) {
-      print(e);
-      emit(SocialMediaAccountsError(errorMessage: e.toString()));
-      emit(SocialMediaAccountsInitial());
-    }
-  }
-
-  Future<void> _onLoginWithGithubPressed(
-    LoginWithGithubPressed event,
-    Emitter<SocialMediaAccountsState> emit,
-  ) async {
-    try {
-      emit(SocialMediaAccountsLoading());
-      final LoginResult loginResult = await FacebookAuth.instance.login();
-
-      final OAuthCredential facebookAuthCredential =
-          FacebookAuthProvider.credential(loginResult.accessToken!.token);
-
-      await _socialMediaAccountsFirebase.signInWithCredential(
-          credential: facebookAuthCredential);
       emit(SocialMediaAccountsSuccess());
       emit(SocialMediaAccountsInitial());
     } on Exception catch (e) {

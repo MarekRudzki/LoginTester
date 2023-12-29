@@ -39,7 +39,7 @@ class LoginMethods extends StatelessWidget {
             ),
             SingleLoginMethod(
               icon: Icons.onetwothree,
-              text: 'PIN authentication',
+              text: 'PIN Authentication',
               methodIndex: 5,
               selectedValue: loginProvider.selectedLoginValue,
             ),

@@ -17,7 +17,7 @@ class SocialMediaAccounts extends StatelessWidget {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => SuccessScreen(
-                  userType: 'SocialMedia',
+                  userType: 'Social Media Account',
                   onLogOut: () async {
                     await context.read<SocialMediaAccountsBloc>().signOut();
                     if (!context.mounted) return;
@@ -72,15 +72,6 @@ class SocialMediaAccounts extends StatelessWidget {
                   onTap: () {
                     context.read<SocialMediaAccountsBloc>().add(
                           LoginWithTwitterPressed(),
-                        );
-                  },
-                ),
-                SocialMediaButton(
-                  imagePath: 'assets/github_icon.png',
-                  buttonText: 'Sign in with Github',
-                  onTap: () {
-                    context.read<SocialMediaAccountsBloc>().add(
-                          LoginWithGithubPressed(),
                         );
                   },
                 ),

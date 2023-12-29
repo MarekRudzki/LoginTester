@@ -12,5 +12,3 @@ class LoginWithGooglePressed extends SocialMediaAccountsEvent {}
 class LoginWithFacebookPressed extends SocialMediaAccountsEvent {}
 
 class LoginWithTwitterPressed extends SocialMediaAccountsEvent {}
-
-class LoginWithGithubPressed extends SocialMediaAccountsEvent {}

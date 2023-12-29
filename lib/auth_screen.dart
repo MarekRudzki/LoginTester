@@ -4,6 +4,7 @@ import 'package:login_tester/features/email_password/presentation/email_password
 import 'package:login_tester/features/login_selection/provider/login_provider.dart';
 import 'package:login_tester/features/login_selection/widgets/login_methods.dart';
 import 'package:login_tester/features/phone_number/presentation/phone_number.dart';
+import 'package:login_tester/features/pin_authentication/presentation/pin_authentication.dart';
 import 'package:login_tester/features/social_media_accounts/social_media_accounts.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +21,7 @@ class AuthScreen extends StatelessWidget {
       const EmailPassword(),
       const PhoneNumber(),
       const SocialMediaAccounts(),
+      const PinAuthentication(),
     ];
 
     return SafeArea(
