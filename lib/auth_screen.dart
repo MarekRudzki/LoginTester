@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_tester/features/anonymous/anonymous.dart';
+import 'package:login_tester/features/anonymous/presentation/anonymous.dart';
 import 'package:login_tester/features/email_password/presentation/email_password.dart';
 import 'package:login_tester/features/login_selection/provider/login_provider.dart';
 import 'package:login_tester/features/login_selection/widgets/login_methods.dart';

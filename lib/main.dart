@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:login_tester/auth_screen.dart';
+import 'package:login_tester/features/anonymous/data/anonymous_firebase.dart';
+import 'package:login_tester/features/anonymous/presentation/bloc/anonymous_bloc.dart';
 import 'package:login_tester/features/email_password/data/email_password_firebase.dart';
 import 'package:login_tester/features/email_password/presentation/bloc/email_password_bloc.dart';
 import 'package:login_tester/features/login_selection/provider/login_provider.dart';
@@ -32,6 +34,11 @@ void main() async {
       create: (context) => LoginProvider(),
       child: MultiBlocProvider(
         providers: [
+          BlocProvider(
+            create: (context) => AnonymousBloc(
+              AnonymousFirebase(),
+            ),
+          ),
           BlocProvider(
             create: (context) => EmailPasswordBloc(
               EmailPasswordFirebase(),
