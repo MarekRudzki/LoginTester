@@ -17,4 +17,8 @@ class PatternHive {
   bool isUserSaved() {
     return _patternHive.containsKey('user_email');
   }
+
+  Future<void> deleteUser() async {
+    await _patternHive.delete('user_email');
+  }
 }

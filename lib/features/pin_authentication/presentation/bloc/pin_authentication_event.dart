@@ -61,3 +61,5 @@ class PinCodeUpdated extends PinAuthenticationEvent {
         text,
       ];
 }
+
+class DeleteUserPressed extends PinAuthenticationEvent {}

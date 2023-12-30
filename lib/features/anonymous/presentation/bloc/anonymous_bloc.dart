@@ -11,6 +11,7 @@ class AnonymousBloc extends Bloc<AnonymousEvent, AnonymousState> {
   AnonymousBloc(this._anonymousFirebase) : super(AnonymousInitial()) {
     on<LoginAnonomyouslyPressed>(_onLoginAnonomyouslyPressed);
     on<LogoutPressed>(_onLogoutPressed);
+    on<DeleteAccountPressed>(_onDeleteAccountPressed);
   }
 
   Future<void> _onLoginAnonomyouslyPressed(
@@ -33,5 +34,12 @@ class AnonymousBloc extends Bloc<AnonymousEvent, AnonymousState> {
     Emitter<AnonymousState> emit,
   ) async {
     await _anonymousFirebase.signOut();
+  }
+
+  Future<void> _onDeleteAccountPressed(
+    DeleteAccountPressed event,
+    Emitter<AnonymousState> emit,
+  ) async {
+    await _anonymousFirebase.deleteAccount();
   }
 }

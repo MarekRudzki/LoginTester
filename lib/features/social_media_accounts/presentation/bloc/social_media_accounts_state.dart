@@ -11,7 +11,18 @@ class SocialMediaAccountsInitial extends SocialMediaAccountsState {}
 
 class SocialMediaAccountsLoading extends SocialMediaAccountsState {}
 
-class SocialMediaAccountsSuccess extends SocialMediaAccountsState {}
+class SocialMediaAccountsSuccess extends SocialMediaAccountsState {
+  final String socialMediaType;
+
+  SocialMediaAccountsSuccess({
+    required this.socialMediaType,
+  });
+
+  @override
+  List<Object> get props => [
+        socialMediaType,
+      ];
+}
 
 class SocialMediaAccountsError extends SocialMediaAccountsState {
   final String errorMessage;

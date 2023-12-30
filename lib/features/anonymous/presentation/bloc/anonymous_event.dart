@@ -14,9 +14,6 @@ class LoginAnonomyouslyPressed extends AnonymousEvent {
   List<Object> get props => [];
 }
 
-class LogoutPressed extends AnonymousEvent {
-  const LogoutPressed();
+class LogoutPressed extends AnonymousEvent {}
 
-  @override
-  List<Object> get props => [];
-}
+class DeleteAccountPressed extends AnonymousEvent {}

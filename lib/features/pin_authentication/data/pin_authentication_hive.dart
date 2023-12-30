@@ -17,4 +17,8 @@ class PinAuthenticationHive {
   bool isUserSaved() {
     return _pinBox.containsKey('user_email');
   }
+
+  Future<void> deleteUser() async {
+    await _pinBox.delete('user_email');
+  }
 }

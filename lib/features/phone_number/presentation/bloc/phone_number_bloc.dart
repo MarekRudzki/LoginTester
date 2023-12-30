@@ -11,7 +11,10 @@ class PhoneNumberBloc extends Bloc<PhoneNumberEvent, PhoneNumberState> {
   PhoneNumberBloc(this._phoneNumberFirebase) : super(PhoneNumberInitial()) {
     on<LoginButtonPressed>(_onLoginButtonPressed);
     on<VerifyButtonPressed>(_onVerifyButtonPressed);
+    on<DeleteAccountPressed>(_onDeleteAccountPressed);
+    on<LogoutPressed>(_onLogOutPressed);
   }
+
   Future<void> _onLoginButtonPressed(
     LoginButtonPressed event,
     Emitter<PhoneNumberState> emit,
@@ -38,10 +41,6 @@ class PhoneNumberBloc extends Bloc<PhoneNumberEvent, PhoneNumberState> {
     }
   }
 
-  Future<void> signOut() async {
-    await _phoneNumberFirebase.signOut();
-  }
-
   Future<void> _onVerifyButtonPressed(
     VerifyButtonPressed event,
     Emitter<PhoneNumberState> emit,
@@ -60,5 +59,19 @@ class PhoneNumberBloc extends Bloc<PhoneNumberEvent, PhoneNumberState> {
       emit(PhoneNumberVerificationError(errorMessage: 'Error occured: ${e}'));
       emit(PhoneNumberInitial());
     }
+  }
+
+  Future<void> _onLogOutPressed(
+    LogoutPressed event,
+    Emitter<PhoneNumberState> emit,
+  ) async {
+    await _phoneNumberFirebase.signOut();
+  }
+
+  Future<void> _onDeleteAccountPressed(
+    DeleteAccountPressed event,
+    Emitter<PhoneNumberState> emit,
+  ) async {
+    await _phoneNumberFirebase.deleteAccount();
   }
 }

@@ -18,6 +18,8 @@ class SocialMediaAccountsBloc
     on<LoginWithGooglePressed>(_onLoginWithGooglePressed);
     on<LoginWithFacebookPressed>(_onLoginWithFacebookPressed);
     on<LoginWithTwitterPressed>(_onLoginWithTwitterPressed);
+    on<LogoutPressed>(_onLogoutPressed);
+    on<DeleteAccountPressed>(_onDeleteAccountPressed);
   }
 
   Future<void> _onLoginWithGooglePressed(
@@ -38,7 +40,7 @@ class SocialMediaAccountsBloc
       await _socialMediaAccountsFirebase.signInWithGoogle(
           credential: credential);
 
-      emit(SocialMediaAccountsSuccess());
+      emit(SocialMediaAccountsSuccess(socialMediaType: 'Google'));
       emit(SocialMediaAccountsInitial());
     } on Exception catch (e) {
       emit(SocialMediaAccountsError(errorMessage: e.toString()));
@@ -59,7 +61,7 @@ class SocialMediaAccountsBloc
 
       await _socialMediaAccountsFirebase.signInWithCredential(
           credential: facebookAuthCredential);
-      emit(SocialMediaAccountsSuccess());
+      emit(SocialMediaAccountsSuccess(socialMediaType: 'Facebook'));
       emit(SocialMediaAccountsInitial());
     } on Exception catch (e) {
       emit(SocialMediaAccountsError(errorMessage: e.toString()));
@@ -92,7 +94,7 @@ class SocialMediaAccountsBloc
       await _socialMediaAccountsFirebase.signInWithCredential(
           credential: twitterAuthCredential);
 
-      emit(SocialMediaAccountsSuccess());
+      emit(SocialMediaAccountsSuccess(socialMediaType: 'Twitter'));
       emit(SocialMediaAccountsInitial());
     } on Exception catch (e) {
       emit(SocialMediaAccountsError(errorMessage: e.toString()));
@@ -100,7 +102,23 @@ class SocialMediaAccountsBloc
     }
   }
 
-  Future<void> signOut() async {
+  Future<void> _onLogoutPressed(
+    LogoutPressed event,
+    Emitter<SocialMediaAccountsState> emit,
+  ) async {
     await _socialMediaAccountsFirebase.signOut();
+  }
+
+  Future<void> _onDeleteAccountPressed(
+    DeleteAccountPressed event,
+    Emitter<SocialMediaAccountsState> emit,
+  ) async {
+    if (event.socialMediaType == 'Google') {
+      await _socialMediaAccountsFirebase.deleteGoogleAccount();
+    } else if (event.socialMediaType == 'Facebook') {
+      await _socialMediaAccountsFirebase.deleteFacebookAccount();
+    } else {
+      await _socialMediaAccountsFirebase.deleteTwitterAccount();
+    }
   }
 }

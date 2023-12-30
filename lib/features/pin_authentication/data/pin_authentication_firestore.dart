@@ -24,4 +24,17 @@ class PinAuthenticationFirestore {
 
     return querySnapshot.docs.first['pin_code'] as String;
   }
+
+  Future<void> deteleFirestoreAccount({
+    required String email,
+  }) async {
+    final QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: email)
+        .get();
+
+    final DocumentReference userRef = querySnapshot.docs.first.reference;
+
+    await userRef.delete();
+  }
 }

@@ -30,8 +30,11 @@ class PhoneNumber extends StatelessWidget {
               builder: (context) => SuccessScreen(
                 userType: 'Phone number',
                 onLogOut: () async {
-                  await context.read<PhoneNumberBloc>().signOut();
-                  if (!context.mounted) return;
+                  context.read<PhoneNumberBloc>().add(LogoutPressed());
+                  Navigator.of(context).pop();
+                },
+                onDeleteAccount: () async {
+                  context.read<PhoneNumberBloc>().add(DeleteAccountPressed());
                   Navigator.of(context).pop();
                 },
               ),

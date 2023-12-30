@@ -24,4 +24,17 @@ class PatternFirestore {
 
     return querySnapshot.docs.first['pattern'] as List<dynamic>;
   }
+
+  Future<void> deteleFirestoreAccount({
+    required String email,
+  }) async {
+    final QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: email)
+        .get();
+
+    final DocumentReference userRef = querySnapshot.docs.first.reference;
+
+    await userRef.delete();
+  }
 }

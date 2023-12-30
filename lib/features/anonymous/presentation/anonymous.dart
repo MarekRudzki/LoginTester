@@ -29,7 +29,15 @@ class Anonymous extends StatelessWidget {
               builder: (context) => SuccessScreen(
                 userType: 'Anonymous Account',
                 onLogOut: () async {
-                  context.read<AnonymousBloc>().add(const LogoutPressed());
+                  context.read<AnonymousBloc>().add(
+                        LogoutPressed(),
+                      );
+                  Navigator.of(context).pop();
+                },
+                onDeleteAccount: () async {
+                  context.read<AnonymousBloc>().add(
+                        DeleteAccountPressed(),
+                      );
                   Navigator.of(context).pop();
                 },
               ),

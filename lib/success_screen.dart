@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class SuccessScreen extends StatelessWidget {
   final String userType;
   final VoidCallback onLogOut;
+  final VoidCallback onDeleteAccount;
 
   const SuccessScreen({
     super.key,
     required this.userType,
     required this.onLogOut,
+    required this.onDeleteAccount,
   });
 
   @override
@@ -44,16 +46,33 @@ class SuccessScreen extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.1,
                 ),
-                ElevatedButton(
-                  onPressed: onLogOut,
-                  child: const Text(
-                    'Log out',
-                    style: TextStyle(
-                      color: Colors.teal,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: onLogOut,
+                      child: const Text(
+                        'Log out',
+                        style: TextStyle(
+                          color: Colors.teal,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(width: 30),
+                    ElevatedButton(
+                      onPressed: onDeleteAccount,
+                      child: const Text(
+                        'Delete account',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

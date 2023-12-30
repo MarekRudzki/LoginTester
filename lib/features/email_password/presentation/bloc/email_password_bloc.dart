@@ -15,6 +15,8 @@ class EmailPasswordBloc extends Bloc<EmailPasswordEvent, EmailPasswordState> {
     on<RegisterButtonPressed>(_onRegisterButtonPressed);
     on<PasswordResetPressed>(_onPasswordResetPressed);
     on<AuthViewChanged>(_onAuthViewChanged);
+    on<LogoutPressed>(_onLogoutPressed);
+    on<DeleteAccountPressed>(_onDeleteAccountPressed);
   }
 
   AuthView _currentView = AuthView.login;
@@ -108,7 +110,17 @@ class EmailPasswordBloc extends Bloc<EmailPasswordEvent, EmailPasswordState> {
     }
   }
 
-  Future<void> signOut() async {
+  Future<void> _onLogoutPressed(
+    LogoutPressed event,
+    Emitter<EmailPasswordState> emit,
+  ) async {
     await _authFirebase.signOut();
+  }
+
+  Future<void> _onDeleteAccountPressed(
+    DeleteAccountPressed event,
+    Emitter<EmailPasswordState> emit,
+  ) async {
+    await _authFirebase.deleteAccount();
   }
 }

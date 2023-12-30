@@ -66,8 +66,19 @@ class _LoginViewState extends State<LoginView> {
                     userType: 'Email & Password',
                     onLogOut: () async {
                       clearControllers();
-                      await context.read<EmailPasswordBloc>().signOut();
-                      if (!context.mounted) return;
+                      context.read<EmailPasswordBloc>().add(LogoutPressed());
+                      Navigator.of(context).pop();
+                    },
+                    onDeleteAccount: () async {
+                      clearControllers();
+                      context
+                          .read<EmailPasswordBloc>()
+                          .add(DeleteAccountPressed());
+                      context.read<EmailPasswordBloc>().add(
+                            AuthViewChanged(
+                              view: AuthView.login,
+                            ),
+                          );
                       Navigator.of(context).pop();
                     },
                   ),

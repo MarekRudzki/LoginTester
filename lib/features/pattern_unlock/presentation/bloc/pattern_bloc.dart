@@ -19,6 +19,7 @@ class PatternBloc extends Bloc<PatternEvent, PatternState> {
     on<RegisterButtonPressed>(_onRegisterButtonPressed);
     on<AuthViewChanged>(_onAuthViewChanged);
     on<PatternUpdated>(_onPatternUpdated);
+    on<DeleteUserPressed>(_onDeleteUserPressed);
   }
 
   AuthView _currentView = AuthView.login;
@@ -118,5 +119,13 @@ class PatternBloc extends Bloc<PatternEvent, PatternState> {
     if (_currentView == AuthView.login) {
       add(LoginButtonPressed());
     }
+  }
+
+  Future<void> _onDeleteUserPressed(
+    DeleteUserPressed event,
+    Emitter<PatternState> emit,
+  ) async {
+    await _patternFirestore.deteleFirestoreAccount(email: getLocalUserEmail());
+    await _patternHive.deleteUser();
   }
 }

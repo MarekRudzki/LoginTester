@@ -65,3 +65,7 @@ class AuthViewChanged extends EmailPasswordEvent {
         view,
       ];
 }
+
+class LogoutPressed extends EmailPasswordEvent {}
+
+class DeleteAccountPressed extends EmailPasswordEvent {}

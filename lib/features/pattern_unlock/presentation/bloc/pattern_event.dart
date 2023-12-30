@@ -50,3 +50,5 @@ class PatternUpdated extends PatternEvent {
         pattern,
       ];
 }
+
+class DeleteUserPressed extends PatternEvent {}

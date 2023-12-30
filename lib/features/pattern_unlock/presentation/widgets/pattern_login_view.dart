@@ -57,7 +57,13 @@ class _PatternLoginViewState extends State<PatternLoginView> {
                               view: AuthView.login,
                             ),
                           );
-
+                      Navigator.of(context).pop();
+                    },
+                    onDeleteAccount: () async {
+                      context.read<PatternBloc>().add(DeleteUserPressed());
+                      context.read<PatternBloc>().add(
+                            AuthViewChanged(view: AuthView.register),
+                          );
                       Navigator.of(context).pop();
                     },
                   ),

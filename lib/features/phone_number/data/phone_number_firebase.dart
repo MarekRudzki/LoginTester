@@ -16,16 +16,18 @@ class VerificationResult {
 }
 
 class PhoneNumberFirebase {
+  final _auth = FirebaseAuth.instance;
+
   Future<VerificationResult> verifyPhoneNumber({
     required String phoneNumber,
   }) async {
     final Completer<VerificationResult> completer =
         Completer<VerificationResult>();
 
-    await FirebaseAuth.instance.verifyPhoneNumber(
+    await _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) async {
-        await FirebaseAuth.instance.signInWithCredential(credential);
+        await _auth.signInWithCredential(credential);
         completer.complete(VerificationResult(VerificationStatus.completed));
       },
       verificationFailed: (FirebaseAuthException e) {
@@ -45,10 +47,14 @@ class PhoneNumberFirebase {
 
   Future<void> signInWithCredential(
       {required AuthCredential credential}) async {
-    await FirebaseAuth.instance.signInWithCredential(credential);
+    await _auth.signInWithCredential(credential);
   }
 
   Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
+    await _auth.signOut();
+  }
+
+  Future<void> deleteAccount() async {
+    await _auth.currentUser?.delete();
   }
 }

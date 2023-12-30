@@ -62,6 +62,20 @@ class _PinRegisterViewState extends State<PinRegisterView> {
                       );
                   Navigator.of(context).pop();
                 },
+                onDeleteAccount: () async {
+                  context.read<PinAuthenticationBloc>().add(
+                        PinCodeDeleting(operationType: 'clear'),
+                      );
+                  context.read<PinAuthenticationBloc>().add(
+                        AuthViewChanged(
+                          view: AuthView.register,
+                        ),
+                      );
+                  context
+                      .read<PinAuthenticationBloc>()
+                      .add(DeleteUserPressed());
+                  Navigator.of(context).pop();
+                },
               ),
             ),
           );

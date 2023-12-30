@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class EmailPasswordFirebase {
+  final _auth = FirebaseAuth.instance;
+
   Future<void> logIn({
     required String email,
     required String password,
   }) async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -41,7 +43,7 @@ class EmailPasswordFirebase {
     }
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -65,7 +67,7 @@ class EmailPasswordFirebase {
   }) async {
     bool isReset = true;
     try {
-      await FirebaseAuth.instance.sendPasswordResetEmail(
+      await _auth.sendPasswordResetEmail(
         email: passwordResetText.trim(),
       );
     } on FirebaseAuthException catch (e) {
@@ -82,6 +84,10 @@ class EmailPasswordFirebase {
   }
 
   Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
+    await _auth.signOut();
+  }
+
+  Future<void> deleteAccount() async {
+    await _auth.currentUser!.delete();
   }
 }

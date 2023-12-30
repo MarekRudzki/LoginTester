@@ -17,10 +17,21 @@ class SocialMediaAccounts extends StatelessWidget {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => SuccessScreen(
-                  userType: 'Social Media Account',
+                  userType: 'Social Media Account: ${state.socialMediaType}',
                   onLogOut: () async {
-                    await context.read<SocialMediaAccountsBloc>().signOut();
-                    if (!context.mounted) return;
+                    context
+                        .read<SocialMediaAccountsBloc>()
+                        .add(LogoutPressed());
+
+                    Navigator.of(context).pop();
+                  },
+                  onDeleteAccount: () async {
+                    context.read<SocialMediaAccountsBloc>().add(
+                          DeleteAccountPressed(
+                            socialMediaType: state.socialMediaType,
+                          ),
+                        );
+
                     Navigator.of(context).pop();
                   },
                 ),

@@ -20,6 +20,7 @@ class PinAuthenticationBloc
     on<AuthViewChanged>(_onAuthViewChanged);
     on<PinCodeDeleting>(_onPinCodeDeleting);
     on<PinCodeUpdated>(_onPinCodeUpdated);
+    on<DeleteUserPressed>(_onDeleteUserPressed);
   }
 
   AuthView _currentView = AuthView.login;
@@ -128,5 +129,13 @@ class PinAuthenticationBloc
     _userPinCode += event.text;
     emit(PinAuthenticationLoading());
     emit(PinAuthenticationInitial());
+  }
+
+  Future<void> _onDeleteUserPressed(
+    DeleteUserPressed event,
+    Emitter<PinAuthenticationState> emit,
+  ) async {
+    await _pinFirestore.deteleFirestoreAccount(email: getLocalUserEmail());
+    await _pinHive.deleteUser();
   }
 }

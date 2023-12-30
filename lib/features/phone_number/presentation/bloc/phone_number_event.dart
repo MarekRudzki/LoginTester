@@ -30,3 +30,7 @@ class VerifyButtonPressed extends PhoneNumberEvent {
   @override
   List<Object> get props => [verificationId, smsCode];
 }
+
+class DeleteAccountPressed extends PhoneNumberEvent {}
+
+class LogoutPressed extends PhoneNumberEvent {}
