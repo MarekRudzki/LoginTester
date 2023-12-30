@@ -9,6 +9,9 @@ import 'package:login_tester/features/anonymous/presentation/bloc/anonymous_bloc
 import 'package:login_tester/features/email_password/data/email_password_firebase.dart';
 import 'package:login_tester/features/email_password/presentation/bloc/email_password_bloc.dart';
 import 'package:login_tester/features/login_selection/provider/login_provider.dart';
+import 'package:login_tester/features/pattern_unlock/data/pattern_firestore.dart';
+import 'package:login_tester/features/pattern_unlock/data/pattern_hive.dart';
+import 'package:login_tester/features/pattern_unlock/presentation/bloc/pattern_bloc.dart';
 import 'package:login_tester/features/phone_number/data/phone_number_firebase.dart';
 import 'package:login_tester/features/phone_number/presentation/bloc/phone_number_bloc.dart';
 import 'package:login_tester/features/pin_authentication/data/pin_authentication_firestore.dart';
@@ -23,6 +26,7 @@ void main() async {
   await dotenv.load();
   await Hive.initFlutter();
   await Hive.openBox('pin_auth');
+  await Hive.openBox('pattern_auth');
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -58,6 +62,12 @@ void main() async {
             create: (context) => PinAuthenticationBloc(
               PinAuthenticationFirestore(),
               PinAuthenticationHive(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => PatternBloc(
+              PatternFirestore(),
+              PatternHive(),
             ),
           ),
         ],

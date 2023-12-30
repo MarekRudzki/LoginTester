@@ -1,19 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class PinAuthenticationFirestore {
+class PatternFirestore {
   Future<void> addUser({
     required String email,
-    required String pinCode,
+    required List<int> pattern,
   }) async {
     await FirebaseFirestore.instance.collection('users').add(
       {
         'email': email,
-        'pin_code': pinCode,
+        'pattern': pattern,
       },
     );
   }
 
-  Future<String> getUserPinCode({
+  Future<List<dynamic>> getUserPattern({
     required String email,
   }) async {
     final CollectionReference<Map<String, dynamic>> collectionReference =
@@ -22,6 +22,6 @@ class PinAuthenticationFirestore {
     final QuerySnapshot<Map<String, dynamic>> querySnapshot =
         await collectionReference.where('email', isEqualTo: email).get();
 
-    return querySnapshot.docs.first['pin_code'] as String;
+    return querySnapshot.docs.first['pattern'] as List<dynamic>;
   }
 }

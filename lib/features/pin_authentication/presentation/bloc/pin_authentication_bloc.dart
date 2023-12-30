@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_tester/features/pin_authentication/data/pin_authentication_firestore.dart';
 import 'package:login_tester/features/pin_authentication/data/pin_authentication_hive.dart';
-import 'package:login_tester/features/pin_authentication/data/user_model.dart';
 
 part 'pin_authentication_event.dart';
 part 'pin_authentication_state.dart';
@@ -89,10 +88,8 @@ class PinAuthenticationBloc
       try {
         await _pinHive.addUser(email: event.email);
         await _pinFirestore.addUser(
-          userModel: UserModel(
-            email: event.email,
-            pinCode: _userPinCode,
-          ),
+          email: event.email,
+          pinCode: _userPinCode,
         );
         emit(PinAuthenticationSuccess());
         emit(PinAuthenticationInitial());
