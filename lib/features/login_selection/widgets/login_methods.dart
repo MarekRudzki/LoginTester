@@ -1,8 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:login_tester/features/login_selection/provider/login_provider.dart';
 import 'package:login_tester/features/login_selection/widgets/single_login_method.dart';
-
-import 'package:provider/provider.dart';
 
 class LoginMethods extends StatelessWidget {
   const LoginMethods({super.key});
@@ -50,14 +54,14 @@ class LoginMethods extends StatelessWidget {
               selectedValue: loginProvider.selectedLoginValue,
             ),
             SingleLoginMethod(
-              icon: Icons.face,
-              text: 'Face Recognition',
+              icon: Icons.fingerprint,
+              text: 'Fingerprint Recognition',
               methodIndex: 7,
               selectedValue: loginProvider.selectedLoginValue,
             ),
             SingleLoginMethod(
-              icon: Icons.fingerprint,
-              text: 'Fingerprint Recognition',
+              icon: Icons.face,
+              text: 'Face Recognition',
               methodIndex: 8,
               selectedValue: loginProvider.selectedLoginValue,
             ),

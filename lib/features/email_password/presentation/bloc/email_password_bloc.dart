@@ -1,5 +1,8 @@
+// Package imports:
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/email_password/data/email_password_firebase.dart';
 
 part 'email_password_event.dart';

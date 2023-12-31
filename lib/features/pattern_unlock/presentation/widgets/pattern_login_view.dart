@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/pattern_unlock/presentation/bloc/pattern_bloc.dart';
 import 'package:login_tester/features/pattern_unlock/presentation/widgets/pattern_drawer.dart';
 import 'package:login_tester/success_screen.dart';

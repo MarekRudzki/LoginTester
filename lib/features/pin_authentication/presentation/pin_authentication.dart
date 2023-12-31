@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/pin_authentication/presentation/bloc/pin_authentication_bloc.dart';
 import 'package:login_tester/features/pin_authentication/presentation/widgets/pin_login_view.dart';
 import 'package:login_tester/features/pin_authentication/presentation/widgets/pin_register_view.dart';

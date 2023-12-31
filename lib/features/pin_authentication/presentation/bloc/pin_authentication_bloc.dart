@@ -1,5 +1,8 @@
+// Package imports:
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/pin_authentication/data/pin_authentication_firestore.dart';
 import 'package:login_tester/features/pin_authentication/data/pin_authentication_hive.dart';
 

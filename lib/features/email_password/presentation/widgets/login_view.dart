@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/email_password/presentation/bloc/email_password_bloc.dart';
 import 'package:login_tester/features/email_password/presentation/widgets/custom_text_field.dart';
 import 'package:login_tester/features/email_password/presentation/widgets/reset_password.dart';
@@ -43,7 +48,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 20),
+        SizedBox(height: MediaQuery.sizeOf(context).height * 0.15),
         BlocListener<EmailPasswordBloc, EmailPasswordState>(
           listener: (context, state) {
             if (state is EmailPasswordError) {

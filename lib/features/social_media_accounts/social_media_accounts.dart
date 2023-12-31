@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/social_media_accounts/presentation/bloc/social_media_accounts_bloc.dart';
 import 'package:login_tester/features/social_media_accounts/presentation/widgets/social_media_button.dart';
 import 'package:login_tester/success_screen.dart';
@@ -57,7 +62,7 @@ class SocialMediaAccounts extends StatelessWidget {
             return Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.sizeOf(context).height * 0.1,
+                  height: MediaQuery.sizeOf(context).height * 0.2,
                 ),
                 SocialMediaButton(
                   imagePath: 'assets/google_icon.png',

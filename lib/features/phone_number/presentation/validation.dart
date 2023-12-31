@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/phone_number/presentation/bloc/phone_number_bloc.dart';
 
 class Validation extends StatefulWidget {
@@ -42,7 +47,7 @@ class _ValidationState extends State<Validation> {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.sizeOf(context).height * 0.1,
+          height: MediaQuery.sizeOf(context).height * 0.15,
         ),
         if (widget.isValidating)
           const Text(

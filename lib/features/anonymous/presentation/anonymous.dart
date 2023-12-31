@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/anonymous/presentation/bloc/anonymous_bloc.dart';
 import 'package:login_tester/success_screen.dart';
 
@@ -48,7 +53,7 @@ class Anonymous extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: MediaQuery.sizeOf(context).height * 0.15,
+            height: MediaQuery.sizeOf(context).height * 0.35,
           ),
           BlocBuilder<AnonymousBloc, AnonymousState>(
             builder: (context, state) {

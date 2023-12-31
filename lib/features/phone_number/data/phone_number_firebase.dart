@@ -1,5 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// Dart imports:
 import 'dart:async';
+
+// Package imports:
+import 'package:firebase_auth/firebase_auth.dart';
 
 enum VerificationStatus { completed, failed, codeSent, timeout }
 

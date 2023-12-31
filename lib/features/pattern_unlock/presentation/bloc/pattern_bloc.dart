@@ -1,6 +1,11 @@
-import 'package:equatable/equatable.dart';
+// Flutter imports:
 import 'package:flutter/foundation.dart';
+
+// Package imports:
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/pattern_unlock/data/pattern_firestore.dart';
 import 'package:login_tester/features/pattern_unlock/data/pattern_hive.dart';
 
@@ -22,7 +27,7 @@ class PatternBloc extends Bloc<PatternEvent, PatternState> {
     on<DeleteUserPressed>(_onDeleteUserPressed);
   }
 
-  AuthView _currentView = AuthView.login;
+  AuthView _currentView = AuthView.register;
   List<int> _userPattern = [];
 
   AuthView get currentView => _currentView;

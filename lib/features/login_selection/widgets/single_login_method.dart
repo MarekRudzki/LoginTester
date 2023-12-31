@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:login_tester/features/login_selection/provider/login_provider.dart';
+
+// Package imports:
 import 'package:provider/provider.dart';
+
+// Project imports:
+import 'package:login_tester/features/login_selection/provider/login_provider.dart';
 
 class SingleLoginMethod extends StatelessWidget {
   final IconData icon;

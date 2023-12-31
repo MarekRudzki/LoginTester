@@ -1,11 +1,14 @@
+// Package imports:
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:login_tester/features/social_media_accounts/data/social_media_accounts_firebase.dart';
 import 'package:twitter_login/twitter_login.dart';
+
+// Project imports:
+import 'package:login_tester/features/social_media_accounts/data/social_media_accounts_firebase.dart';
 
 part 'social_media_accounts_event.dart';
 part 'social_media_accounts_state.dart';

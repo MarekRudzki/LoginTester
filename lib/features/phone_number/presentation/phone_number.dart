@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:login_tester/features/phone_number/presentation/bloc/phone_number_bloc.dart';
 import 'package:login_tester/features/phone_number/presentation/validation.dart';
 import 'package:login_tester/success_screen.dart';
@@ -62,7 +67,7 @@ class PhoneNumber extends StatelessWidget {
           return Column(
             children: [
               SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.1,
+                height: MediaQuery.sizeOf(context).height * 0.15,
               ),
               const Center(
                 child: CircularProgressIndicator(

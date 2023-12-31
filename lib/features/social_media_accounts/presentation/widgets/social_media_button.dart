@@ -1,3 +1,4 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class SocialMediaButton extends StatelessWidget {
@@ -19,7 +20,7 @@ class SocialMediaButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
-          vertical: 5,
+          vertical: 10,
         ),
         child: Container(
           height: 45,
