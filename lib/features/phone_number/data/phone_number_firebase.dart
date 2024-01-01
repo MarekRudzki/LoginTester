@@ -3,6 +3,7 @@ import 'dart:async';
 
 // Package imports:
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 
 enum VerificationStatus { completed, failed, codeSent, timeout }
 
@@ -18,6 +19,7 @@ class VerificationResult {
   });
 }
 
+@lazySingleton
 class PhoneNumberFirebase {
   final _auth = FirebaseAuth.instance;
 

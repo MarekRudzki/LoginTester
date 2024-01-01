@@ -1,6 +1,8 @@
 // Package imports:
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:injectable/injectable.dart';
 
+@lazySingleton
 class PatternFirestore {
   Future<void> addUser({
     required String email,

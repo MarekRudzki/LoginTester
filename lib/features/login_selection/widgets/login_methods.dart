@@ -65,18 +65,6 @@ class LoginMethods extends StatelessWidget {
               methodIndex: 8,
               selectedValue: loginProvider.selectedLoginValue,
             ),
-            SingleLoginMethod(
-              icon: Icons.record_voice_over,
-              text: 'Voice Recognition',
-              methodIndex: 9,
-              selectedValue: loginProvider.selectedLoginValue,
-            ),
-            SingleLoginMethod(
-              icon: Icons.remove_red_eye_outlined,
-              text: 'Iris Recognition',
-              methodIndex: 10,
-              selectedValue: loginProvider.selectedLoginValue,
-            ),
           ],
         );
       },

@@ -1,6 +1,7 @@
 // Package imports:
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:login_tester/features/pin_authentication/data/pin_authentication_firestore.dart';
@@ -11,6 +12,7 @@ part 'pin_authentication_state.dart';
 
 enum AuthView { login, register }
 
+@injectable
 class PinAuthenticationBloc
     extends Bloc<PinAuthenticationEvent, PinAuthenticationState> {
   final PinAuthenticationFirestore _pinFirestore;

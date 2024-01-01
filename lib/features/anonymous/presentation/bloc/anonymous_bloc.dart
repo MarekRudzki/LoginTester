@@ -1,6 +1,7 @@
 // Package imports:
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:login_tester/features/anonymous/data/anonymous_firebase.dart';
@@ -8,6 +9,7 @@ import 'package:login_tester/features/anonymous/data/anonymous_firebase.dart';
 part 'anonymous_event.dart';
 part 'anonymous_state.dart';
 
+@injectable
 class AnonymousBloc extends Bloc<AnonymousEvent, AnonymousState> {
   final AnonymousFirebase _anonymousFirebase;
 

@@ -62,17 +62,20 @@ class SuccessScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 30),
-                    ElevatedButton(
-                      onPressed: onDeleteAccount,
-                      child: const Text(
-                        'Delete account',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
+                    if (userType != 'Fingerprint recognition')
+                      ElevatedButton(
+                        onPressed: onDeleteAccount,
+                        child: const Text(
+                          'Delete account',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
                         ),
-                      ),
-                    ),
+                      )
+                    else
+                      const SizedBox.shrink(),
                   ],
                 ),
               ],

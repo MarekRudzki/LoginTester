@@ -22,6 +22,7 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final int currentLoginIndex =
         context.watch<LoginProvider>().selectedLoginValue;
+
     final List<Widget> availableLoginMethods = [
       const Anonymous(),
       const EmailPassword(),

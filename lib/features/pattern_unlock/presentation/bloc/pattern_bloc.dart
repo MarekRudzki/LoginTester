@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 // Package imports:
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:login_tester/features/pattern_unlock/data/pattern_firestore.dart';
@@ -14,6 +15,7 @@ part 'pattern_state.dart';
 
 enum AuthView { login, register }
 
+@injectable
 class PatternBloc extends Bloc<PatternEvent, PatternState> {
   final PatternFirestore _patternFirestore;
   final PatternHive _patternHive;

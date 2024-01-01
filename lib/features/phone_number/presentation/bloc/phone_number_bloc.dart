@@ -2,6 +2,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:login_tester/features/phone_number/data/phone_number_firebase.dart';
@@ -9,6 +10,7 @@ import 'package:login_tester/features/phone_number/data/phone_number_firebase.da
 part 'phone_number_event.dart';
 part 'phone_number_state.dart';
 
+@injectable
 class PhoneNumberBloc extends Bloc<PhoneNumberEvent, PhoneNumberState> {
   final PhoneNumberFirebase _phoneNumberFirebase;
   PhoneNumberBloc(this._phoneNumberFirebase) : super(PhoneNumberInitial()) {

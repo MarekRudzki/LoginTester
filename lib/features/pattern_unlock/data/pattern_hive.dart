@@ -1,6 +1,8 @@
 // Package imports:
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:injectable/injectable.dart';
 
+@lazySingleton
 class PatternHive {
   final _patternHive = Hive.box('pattern_auth');
 

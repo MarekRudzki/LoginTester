@@ -1,6 +1,8 @@
 // Package imports:
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:injectable/injectable.dart';
 
+@lazySingleton
 class PinAuthenticationFirestore {
   Future<void> addUser({
     required String email,
