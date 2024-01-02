@@ -38,6 +38,7 @@ class SuccessScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 Text(
                   userType,
+                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 22,
