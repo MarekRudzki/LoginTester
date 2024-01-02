@@ -84,7 +84,6 @@ class AuthScreen extends StatelessWidget {
                             child: Container(
                               padding: const EdgeInsets.all(10),
                               width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.6,
                               child: const SingleChildScrollView(
                                 child: Column(
                                   children: [

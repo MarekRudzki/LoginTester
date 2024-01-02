@@ -59,12 +59,6 @@ class LoginMethods extends StatelessWidget {
               methodIndex: 7,
               selectedValue: loginProvider.selectedLoginValue,
             ),
-            SingleLoginMethod(
-              icon: Icons.face,
-              text: 'Face Recognition',
-              methodIndex: 8,
-              selectedValue: loginProvider.selectedLoginValue,
-            ),
           ],
         );
       },
